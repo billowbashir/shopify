@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Shop,Product
-from .forms import NewShopForm
+from .forms import NewShopForm,NewProductForm
 def home(request):
     shops=Shop.objects.all()
     return render (request,'index.html',{'shops':shops})
@@ -23,4 +23,16 @@ def shop_products(request,shop_id):
     shop=get_object_or_404(Shop,pk=shop_id)
     return render(request,'shop_products.html',{'products':products,'shop':shop})
 
-def add_product(request,pk)
+def add_product(request,pk):
+    shop = get_object_or_404(Shop,pk=pk)
+    if request.method == 'POST':
+        product_form = NewProductForm(request.POST, request.FILES)
+        if product_form.is_valid():
+            product = product_form.save(commit=False)
+            product.shop=shop
+            product.save()
+        return redirect('products', shop_id=shop.id)
+
+    else:
+        product_form = NewProductForm()
+    return render(request, 'new_product.html', {"form": product_form,'shop':shop})

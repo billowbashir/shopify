@@ -2,9 +2,9 @@
 {%load bootstrap3%}
 {%block content%}
 <div class="container">
-  
+
 {%if request.user == shop.owner%}
-<a href="#">add a product</a>
+<a href="{%url 'new_product' pk=shop.id%}">add a product</a>
 {%endif%}
 <div   class="row">
 <h1>{{shop.name}}</h1>
@@ -17,12 +17,12 @@
   <div class="w3-container card">
     <div class="w3-card-4" style="width:90%;">
       <header class="w3-container edge">
-        <h3>{{product.name}} {{product.price}}</h3>
+        <h4>{{product.brand}} {{product.name}} : {{product.price}}</h4>
       </header>
       <div class="w3-container content">
         <p>{{product.name}}</p>
 
-        <p>brand:{{product.brand}}</p>
+
 
       <a href="#">add to cart</a>
       </div>
