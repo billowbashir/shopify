@@ -17,15 +17,14 @@
   <div class="w3-container card">
     <div class="w3-card-4" style="width:90%;">
       <header class="w3-container edge">
-        <h4>{{product.brand}} {{product.name}} : {{product.price}}</h4>
+        <h4>{{product.brand}} {{product.name}} : <br>{{product.price}}</h4>
       </header>
       <div class="w3-container content">
-        <p>{{product.name}}</p>
-
-
-
-      <a href="#">add to cart</a>
+        <img style="height:100px;width:100px"src="{{product.image.url}}" alt="{{product.brand}} {{product.name}}">
       </div>
+      <footer class="w3-container edge">
+      <a style="color:white;text-align:center;" href="#"><i style="text-align:center;" class="fas fa-cart-plus"></i></a>
+      </footer>
     </div>
   </div>
    </div>
@@ -40,6 +39,7 @@
 <style>
 .content{
 background-color: white;
+
 }
 .card{
 width:100%;

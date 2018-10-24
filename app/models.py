@@ -17,6 +17,7 @@ class Product(models.Model):
     description=models.CharField(max_length=900)
     price= models.DecimalField(max_digits=10, decimal_places=2)
     shop=models.ForeignKey(Shop,on_delete=models.CASCADE)
+    image=models.ImageField(upload_to='product_images/')
 
     def __str__(self):
         return str(self.name) + ": $" + str(self.price)
