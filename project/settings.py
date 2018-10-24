@@ -26,6 +26,7 @@ SECRET_KEY = 'h4&e^!4=j=jc=i@$n(4n^$^0yx7u2#cs12tu%#_!(k1e*bj62#'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+LOGIN_REDIRECT_URL='Home'
 
 # PHONENUMBER_DB_FORMAT='E164'
 # # Application definition

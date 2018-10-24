@@ -1,5 +1,45 @@
 {%extends 'base.html' %}
 {% load bootstrap3 %}
 {% block content %}
-<h1>shopify calls</h1>
+
+
+<div class="container">
+<div class="row">
+
+
+{%for shop in shops%}
+<div style="margin-top:20px;" class='col-md-6'>
+<div class="w3-container card">
+  <div class="w3-card-4" style="width:90%;">
+    <header class="w3-container edge">
+      <h3>{{shop.name}}</h3>
+    </header>
+    <div class="w3-container content">
+      <p>name:{{shop.name}}</p>
+      <h4>Contacts</h4>
+      <p>email: {{shop.email}}</p>
+      <p>Number: {{shop.phone_number}}</p>
+    <a style="right:0;" href="{% url 'products' shop.id%}">view products</a>
+    </div>
+  </div>
+</div>
+ </div>
+{%endfor%}
+
+  </div>
+   </div>
+
+   <style>
+.content{
+  background-color: white;
+}
+.card{
+  width:100%;
+}
+.edge{
+  background-color: teal;
+  color:white;
+}
+
+</style>
 {%endblock %}

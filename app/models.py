@@ -11,3 +11,12 @@ class Shop(models.Model):
 
     def __str__(self):
         return self.name
+class Product(models.Model):
+    name=models.CharField(max_length=90)
+    brand=models.CharField(max_length=90)
+    description=models.CharField(max_length=900)
+    price= models.DecimalField(max_digits=10, decimal_places=2)
+    shop=models.ForeignKey(Shop,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.name) + ": $" + str(self.price)

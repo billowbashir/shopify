@@ -14,8 +14,8 @@
     </div>
     <div class="col-sm-4 col-md-4 navbar-right">
       {% if user.is_authenticated %}
-      <a class="navbar-brand" href="#">{{request.user}}</a>
-      <a class="navbar-brand" href="#">Apply</a>
+      <a class="navbar-brand" href="#">{{request.user|title}}</a>
+      <a class="navbar-brand" href="{%url 'new_shop'%}">Apply</a>
       <a class="navbar-brand" href="/logout">logout</a>
       {%else%}
       <a class='navbar-brand' href="/accounts/login">Login</a>
@@ -37,7 +37,7 @@
 <style>
 .navbar-inverse{
   height: 100px;
-  background-color: #4F0505;
+  background-color: green;
   /* padding-top: 50px; */
   padding-bottom: 50px;
   margin-bottom: 0px;
