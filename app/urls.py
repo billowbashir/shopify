@@ -9,6 +9,8 @@ urlpatterns=[
         url(r'^new_shop',views.new_shop,name='new_shop'),
         url(r'^products/(?P<shop_id>\d+)/$',views.shop_products,name='products'),
         url(r'^new_product/(?P<pk>\d+)$',views.add_product,name='new_product'),
+        url(r'^new_order(\d+)$',views.new_order,name='new_order'),
+        url(r'^view_cart',views.view_cart,name='view_cart')
 ]
 
 if settings.DEBUG:

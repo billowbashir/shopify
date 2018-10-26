@@ -23,7 +23,7 @@
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="Apply">
+    <input type="submit" onclick='process()' class="btn btn-success btn-lg" value="Apply">
   </form>
 </div>
 <div class="col-md-4"></div>
@@ -32,5 +32,10 @@
   {% bootstrap_javascript %} {% endblock %}
 
 </body>
+<script>
+  function process(){
+    alert('we are processing your application, we shall get back to you soon !')
+  }
+</script>
 
 </html>

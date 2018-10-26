@@ -21,3 +21,8 @@ class Product(models.Model):
 
     def __str__(self):
         return str(self.name) + ": $" + str(self.price)
+
+class Order(models.Model):
+    quantity=models.PositiveIntegerField()
+    product=models.ForeignKey(Product)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)

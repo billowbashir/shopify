@@ -17,6 +17,7 @@
       <a class="navbar-brand" href="#">{{request.user|title}}</a>
       <a class="navbar-brand" href="{%url 'new_shop'%}">Apply</a>
       <a class="navbar-brand" href="/logout">logout</a>
+      <a class="navbar-brand" href="{%url 'view_cart'%}">cart</a>
       {%else%}
       <a class='navbar-brand' href="/accounts/login">Login</a>
       {% endif%}
@@ -44,7 +45,7 @@
   background-size: cover;
 }
 body{
-  background-image: url('https://images.unsplash.com/photo-1460602594182-8568137446ce?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c6a89cf0d31c8ed23b35aaf9a119a9f5&w=1000&q=80');
+  background-image: url('http://bluebelloffice.com/img/slide-four.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

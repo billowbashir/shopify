@@ -3,14 +3,15 @@
 {%block content%}
 <div class="container">
 
-{%if request.user == shop.owner%}
-<a href="{%url 'new_product' pk=shop.id%}">add a product</a>
-{%endif%}
+
 <div   class="row">
-<h1>{{shop.name}}</h1>
+  {%if request.user == shop.owner%}
+  <button class="btn btn-primary" style="text-align:center;"><a style="color:black;text-align:center;" href="{%url 'new_product' pk=shop.id%}">add a product</a></button>
+  {%endif%}
+<h1 style="text-align:center;color:white;">Welcome To {{shop.name}} Shop</h1>
 </div>
 
-<div class="row">
+<div  style="" class="row">
   {%if products%}
   {%for product in products%}
   <div style="margin-top:20px;" class='col-md-3'>
@@ -23,14 +24,21 @@
         <img style="height:100px;width:100px"src="{{product.image.url}}" alt="{{product.brand}} {{product.name}}">
       </div>
       <footer class="w3-container edge">
-      <a style="color:white;text-align:center;" href="#"><i style="text-align:center;" class="fas fa-cart-plus"></i></a>
+        <form  action="{%url 'new_order' product.id%}" method="post" enctype="multipart/form-data">
+          {%csrf_token%}
+
+          {% bootstrap_form order_form%}
+        <i style="text-align:center;" class="fas fa-cart-plus"><input type="submit" class="btn btn-success btn-lg" value="Add"></i>
+
+        </form>
+
       </footer>
     </div>
   </div>
    </div>
    {%endfor%}
    {%else%}
-   <h1>No products yet</h1>
+   <h1 style="color:black;text-align:center;">Oops!! No products yet</h1>
    {%endif%}
 </div>
 

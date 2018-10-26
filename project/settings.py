@@ -42,6 +42,7 @@ LOGIN_REDIRECT_URL='Home'
 
 INSTALLED_APPS = [
     'app',
+
     'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
