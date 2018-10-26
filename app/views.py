@@ -11,7 +11,8 @@ from .forms import NewShopForm,NewProductForm,NewOrderForm
 def home(request):
     shops=Shop.objects.all()
     return render (request,'index.html',{'shops':shops})
-    
+def about(request):
+    return render(request,'about.html')    
 @login_required(login_url='/accounts/login/')
 def new_shop(request):
     current_user=request.user
